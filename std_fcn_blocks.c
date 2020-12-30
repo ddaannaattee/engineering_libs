@@ -51,13 +51,13 @@ Create definitions for timer types (as integers)
 struct s_timer
 {
 	int16_t type;		//Timer type (TP, TON, TOF)
-	int32_t preset;			//Time value at which timer function changes
+	int32_t preset;		//Time value at which timer function changes
 	int16_t preset_units;	//Units of preset variable
-	bool start;				//Control for "first time activation" of timer
-	clock_t t_start;		//Program time when start variable is first activated
-	bool running;			//Indicator that timer is active and updating its counts
-	clock_t t_elapsed;		//Timer counter
-	bool output;			//Output value based on timer logic
+	bool start;		//Control for "first time activation" of timer
+	clock_t t_start;	//Program time when start variable is first activated
+	bool running;		//Indicator that timer is active and updating its counts
+	clock_t t_elapsed;	//Timer counter
+	bool output;		//Output value based on timer logic
 }
 
 int16_t updateTimer( struct s_timer * sp_timer )
@@ -70,7 +70,7 @@ int16_t updateTimer( struct s_timer * sp_timer )
 	
 	/*If "Start" is activated for the first time...*/
 	if( (sp_timer->start == true) &&
-		(sp_timer->running == false) )
+	    (sp_timer->running == false) )
 	{
 		//Save program time to t_start
 		sp_timer->t_start = t_program;
@@ -103,10 +103,9 @@ int16_t updateTimer( struct s_timer * sp_timer )
 		
 		/*On-Delay Timer*/
 		case 1:
-			if( sp_timer->start == true &&
-				sp_timer->running == false )
+			if( sp_timer->start == true )
 			{
-				
+				sp_timer->t_elapsed = t_program;
 			}
 			break;
 		

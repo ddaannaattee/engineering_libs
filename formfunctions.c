@@ -30,6 +30,9 @@ bool validateEntryLength( GtkWidget * entry_box )
 //It uses atof(), and returns values as interpreted by that function.
 double getEntry( GtkWidget * entry_box )
 {
+	//Make better input filter
+
+	
 	const char * temp;
 	double value;
 	temp = gtk_entry_get_text( GTK_ENTRY( entry_box ) );
@@ -53,6 +56,9 @@ int getCBox( GtkWidget * combo_box )
 //This function takes a label and a value and outputs it to a label...
 void setLabelOutput( GtkWidget * label, double value )
 {
+	//Redo this function
+
+
 	//Display in label
 	char buff[50];
 	char * p_buff = &buff[0];
@@ -65,6 +71,9 @@ void setLabelOutput( GtkWidget * label, double value )
 //This function takes an entry box and a value and outputs it to a label...
 void setEntryOutput( GtkWidget * entry_box, double value )
 {
+	//Redo this function
+
+
 	//Display in entry box
 	char buff[50];
 	char * p_buff = &buff[0];
